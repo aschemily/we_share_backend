@@ -28,7 +28,7 @@ Group.create(group_name: "group name test")
 Group.create(group_name: "testing group")
 
 Favorite.create(title:"test restaurant", image:"http://www.orseu-concours.com/76-292-thickbox/test-epso-de-raisonnement-numerique-4-fr.jpg", details: "testing details", topic_id: 1)
-Favorite.create(title:"test second restaurant", image:"http://www.orseu-concours.com/76-292-thickbox/test-epso-de-raisonnement-numerique-4-fr.jpg", details: "testing details", topic_id: 1)
+Favorite.create(title:"favorite test restaurant 2", image:"http://www.orseu-concours.com/76-292-thickbox/test-epso-de-raisonnement-numerique-4-fr.jpg", details: "testing details", topic_id: 1)
 Favorite.create(title:"test movie", image:"http://www.orseu-concours.com/76-292-thickbox/test-epso-de-raisonnement-numerique-4-fr.jpg", details: "testing details", topic_id: 2)
 Favorite.create(title:"test second movie", image:"http://www.orseu-concours.com/76-292-thickbox/test-epso-de-raisonnement-numerique-4-fr.jpg", details: "testing details", topic_id: 2)
 

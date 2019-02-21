@@ -7,7 +7,7 @@ class Api::V1::FavoritesController < ApplicationController
 
   def index
     @favorites = Favorite.all
-    render json: @favorites, status: :ok
+    render json: @favorites
   end
 
   def show

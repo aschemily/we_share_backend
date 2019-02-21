@@ -3,12 +3,18 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     @users = User.all
-    render json: @users, status: :ok 
+    render json: @users, status: :ok
   end
 
   def show
 
   render json: @user
+  end
+
+  def create
+    @user = User.create(user_params)
+
+    render json: @user, status: :created
   end
 
 

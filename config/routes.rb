@@ -6,7 +6,8 @@ Rails.application.routes.draw do
         resources :groups
         resources :topics
         resources :favorites
-      
+        resources :user_favorites
+
       end
     end
 

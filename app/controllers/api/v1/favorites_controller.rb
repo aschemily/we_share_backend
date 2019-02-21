@@ -1,8 +1,4 @@
 class Api::V1::FavoritesController < ApplicationController
-  # t.string "title"
-  # t.string "image"
-  # t.string "details"
-  # t.integer "topic_id"
   before_action :find_favorite, only:[:show]
 
   def index

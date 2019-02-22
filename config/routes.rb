@@ -8,6 +8,9 @@ Rails.application.routes.draw do
         resources :favorites
         resources :user_favorites
 
+        post '/signup', to: "users#create"
+        get 'get_user', to: "auth#show"
+
       end
     end
 

@@ -8,8 +8,9 @@ Rails.application.routes.draw do
         resources :favorites
         resources :user_favorites
 
-        post '/signup', to: "users#create"
-        get 'get_user', to: "auth#show"
+        # get '/profile', to: 'users#profile'
+        post '/login', to: "auth#login"
+        get '/current_user', to: "auth#get_user_from_token"
 
       end
     end

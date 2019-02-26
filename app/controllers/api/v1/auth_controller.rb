@@ -3,12 +3,13 @@ class Api::V1::AuthController < ApplicationController
   wrap_parameters :user, include:[:username, :email, :password]
 
   def login
+
      @user = User.find_by(username: params[:username])
 
      if @user && @user.authenticate(params[:password])
-       token = encode_token(@user.id)
+       userToken = encode_token(@user.id)
 
-       render json: {user: UserSerializer.new(@user), token: token}, status: :accepted
+       render json: {user: UserSerializer.new(@user), token: userToken}
      else
        render json: {errors: "WHOA! You dun goofed!"}
      end

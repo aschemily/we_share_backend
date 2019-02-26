@@ -11,6 +11,8 @@ Rails.application.routes.draw do
         # get '/profile', to: 'users#profile'
         post '/login', to: "auth#login"
         get '/current_user', to: "auth#get_user_from_token"
+        get '/render_favorites/:id', to: "user_favorites#render_favorites"
+
 
       end
     end

@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   # skip_before_action :authorized, only:[:create]
-  before_action :find_user, only:[:show]
+  #before_action :find_user, only:[:show]
   wrap_parameters :user, include:[:username, :email, :password, :password_confirmation]
 
   def index
@@ -8,7 +8,25 @@ class Api::V1::UsersController < ApplicationController
     render json: @users, status: :ok
   end
 
+
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      token = encode_token(@user.id)
+
+      #render json: {user: UserSerializer.new(@user)}
+      render json: {user: UserSerializer.new(@user), token:token}
+    else
+      render json: {errors: @user.errors.full_messages}
+    end
+
+  end
+
   def show
+
+    @user = User.find(params[:id])
+
     if @user
       if current_user.id == @user.id
         render json: @user
@@ -17,18 +35,6 @@ class Api::V1::UsersController < ApplicationController
       end
     else
       render json:{errors:"User not found!"}
-    end
-
-  end
-
-  def create
-    @user = User.new(user_params)
-
-    if @user.save
-      token = encode_token(@user.id)
-      render json: {user: UserSerializer.new(@user), token:token}
-    else
-      render json: {errors: @user.errors.full_messages}
     end
 
   end

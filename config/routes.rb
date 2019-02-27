@@ -5,13 +5,14 @@ Rails.application.routes.draw do
         resources :users
         resources :groups
         resources :topics
-        resources :favorites
+        # resources :favorites
         resources :user_favorites
 
         # get '/profile', to: 'users#profile'
+        get '/users/:id/favorites', to: 'favorites#index'
         post '/login', to: "auth#login"
         get '/current_user', to: "auth#get_user_from_token"
-        get '/render_favorites/:id', to: "user_favorites#render_favorites"
+        # get '/render_favorites/:id', to: "user_favorites#render_favorites"
 
 
       end

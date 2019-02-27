@@ -2,13 +2,13 @@ class Api::V1::FavoritesController < ApplicationController
   before_action :find_favorite, only:[:show]
 
   def index
-    @favorites = Favorite.all
-    render json: @favorites
+    @user = User.find(params[:id])
+
+    render json: @user.favorites
   end
 
   def show
-
-  render json: @favorite
+    render json: @favorite
   end
 
 

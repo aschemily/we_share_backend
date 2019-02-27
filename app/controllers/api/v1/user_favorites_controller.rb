@@ -19,13 +19,6 @@ class Api::V1::UserFavoritesController < ApplicationController
     render json: @userFavorite
   end
 
-  def render_favorites
-    #byebug
-    @user = User.find(params[:id]).favorites
-    if current_user.id == @user.id
-      render json: @user
-    end
-  end
 
 
   private

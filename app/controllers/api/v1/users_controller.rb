@@ -4,8 +4,9 @@ class Api::V1::UsersController < ApplicationController
   wrap_parameters :user, include:[:username, :email, :password, :password_confirmation]
 
   def index
+    #@users = User.where.not(id: current_user.id)
     @users = User.all
-    render json: @users, status: :ok
+    render json: @users
   end
 
 

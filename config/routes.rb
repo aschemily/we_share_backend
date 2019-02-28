@@ -10,9 +10,14 @@ Rails.application.routes.draw do
 
         # get '/profile', to: 'users#profile'
         get '/users/:id/favorites', to: 'favorites#index'
+
         get '/users/:id/conversations', to: 'conversations#index'
-        get '/users/:id/conversations/:id/messages', to: 'conversations#show_messages'
-        get '/users/:id/conversations/:id/users', to: 'conversations#show_users'
+
+        get '/conversations/:id', to: 'conversations#show'
+
+        post '/users/:id/messages', to: 'messages#create'
+
+
         post '/login', to: "auth#login"
         get '/current_user', to: "auth#get_user_from_token"
         # get '/render_favorites/:id', to: "user_favorites#render_favorites"

@@ -4,13 +4,26 @@ wrap_parameters :message, include:[:messages, :user_id, :conversation_id, :favor
 
 def create
 
-  @conversation = Conversation.create(conversation_name: 'conversation created')
+  # if Conversation.exists?(conversation_id: conversation_id)
+  #     @message = Message.create(message_params)
+  #    else
+      @conversation = Conversation.create(conversation_name: 'conversation created')
+      @message = @conversation.messages.new(message_params)
+    if @message.save
+      
+      render json: @message
+    end
 
-  @message = @conversation.messages.new(message_params)  
+end
+
+def new_message
+
+  @message = Message.new(message_params)
+  #byebug
   if @message.save
+
     render json: @message
   end
-
 end
 
 private

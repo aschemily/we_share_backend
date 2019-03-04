@@ -16,12 +16,14 @@ Rails.application.routes.draw do
         get '/conversations/:id', to: 'conversations#show'
 
         post '/users/:id/messages', to: 'messages#create'
+        post '/users/:id/newmessage', to: 'messages#new_message'
 
 
         post '/login', to: "auth#login"
         get '/current_user', to: "auth#get_user_from_token"
         # get '/render_favorites/:id', to: "user_favorites#render_favorites"
 
+        #mount ActionCable.server => '/cable'
 
       end
     end

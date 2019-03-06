@@ -4,15 +4,17 @@ class Api::V1::UsersController < ApplicationController
   wrap_parameters :user, include:[:username, :email, :password, :password_confirmation]
 
   def index
-    @users = User.where.not(id: current_user.id)
-    #@users = User.all
+   #@users = User.where.not(id: current_user.id)
+    @users = User.all
+    #byebug
     render json: @users
   end
 
 
   def create
+    #byebug
     @user = User.new(user_params)
-
+    #byebug
     if @user.save
       token = encode_token(@user.id)
 
@@ -27,13 +29,8 @@ class Api::V1::UsersController < ApplicationController
   def show
 
     @user = User.find(params[:id])
-
     if @user
-      if current_user.id == @user.id
         render json: @user
-      else
-        render json: {errors:"This is not your profile!"}
-      end
     else
       render json:{errors:"User not found!"}
     end

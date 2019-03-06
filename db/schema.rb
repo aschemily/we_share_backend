@@ -38,11 +38,12 @@ ActiveRecord::Schema.define(version: 2019_02_27_214345) do
 
   create_table "messages", force: :cascade do |t|
     t.string "messages"
-    t.integer "user_id"
     t.integer "conversation_id"
+    t.integer "receiver_id"
+    t.integer "sender_id"
+    t.integer "favorite_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "favorite_id"
   end
 
   create_table "topics", force: :cascade do |t|

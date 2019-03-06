@@ -3,9 +3,9 @@ class Api::V1::AuthController < ApplicationController
   wrap_parameters :user, include:[:username, :email, :password]
 
   def login
-
+    #byebug
      @user = User.find_by(username: params[:username])
-
+     #byebug
      if @user && @user.authenticate(params[:password])
        userToken = encode_token(@user.id)
 

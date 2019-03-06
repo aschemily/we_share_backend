@@ -13,10 +13,18 @@ Rails.application.routes.draw do
 
         get '/users/:id/conversations', to: 'conversations#index'
 
+        get '/conversations', to: 'conversations#index'
+
         get '/conversations/:id', to: 'conversations#show'
 
         post '/users/:id/messages', to: 'messages#create'
-        post '/users/:id/newmessage', to: 'messages#new_message'
+        get '/users/:id/messages', to: 'messages#show'
+
+        #get 'users/:id/usermessages', to: 'messages#show_messages'
+
+        #post '/users/:id/conversations', to: 'conversations#create'
+
+        post '/new_messages_for_only_two/:id1/:id2', to: 'messages#new_message'
 
 
         post '/login', to: "auth#login"
@@ -24,7 +32,7 @@ Rails.application.routes.draw do
         # get '/render_favorites/:id', to: "user_favorites#render_favorites"
 
         #mount ActionCable.server => '/cable'
-
+        get '/show_messages_for_only_two/:id1/:id2', to: 'messages#show_messages_for_only_two'
       end
     end
 

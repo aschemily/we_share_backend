@@ -28,13 +28,14 @@ end
 # end
 
 def new_message
-
-  @message = Message.new(message_params)
-  #byebug
-  if @message.save
-
-    render json: @message
-  end
+byebug
+@conversation = Conversation.where(params[:conversation_id].to_i).first_or_initalize
+  # @message = Message.new(message_params)
+  # byebug
+  # if @message.save
+  #
+  #   render json: @message
+  # end
 end
 
 

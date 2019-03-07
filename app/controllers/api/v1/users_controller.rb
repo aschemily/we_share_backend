@@ -29,6 +29,7 @@ class Api::V1::UsersController < ApplicationController
   def show
 
     @user = User.find(params[:id])
+    #byebug
     if @user
         render json: @user
     else

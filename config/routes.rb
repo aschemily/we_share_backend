@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
         #post '/users/:id/conversations', to: 'conversations#create'
 
-        post '/new_messages_for_only_two/:id1/:id2', to: 'messages#new_message'
+        post '/newmessages', to: 'messages#new_message'
 
 
         post '/login', to: "auth#login"

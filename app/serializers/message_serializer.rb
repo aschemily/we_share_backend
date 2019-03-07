@@ -1,5 +1,5 @@
 class MessageSerializer < ActiveModel::Serializer
-  attributes :messages, :conversation, :favorite_id, :sender_id, :receiver_id
+  attributes :messages, :conversation, :favorite, :sender, :receiver
   belongs_to :conversation
   belongs_to :favorite, optional: true
 
